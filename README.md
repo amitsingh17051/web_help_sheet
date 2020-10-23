@@ -30,3 +30,33 @@ explode('</title>', explode('<title>', file_get_contents("https://www.youtube.co
 ```
 the_permalink()
 ```
+
+### Get Data by  date from database wp_query
+```
+<?php
+    $query = new wp_query( 'post_status=any&order=asc' );
+
+    $posts_by_day = array_reduce( $query->posts, function( $r, $v ) {
+        $r[ date( 'Y-m-d', strtotime( $v->post_date ) ) ][] = $v;
+        return $r;
+    });
+?>
+
+<?php if ( $posts_by_day ) : ?>
+<div class="day-posts">
+	<?php foreach( $posts_by_day as $day => $day_posts ) : ?>
+		<div class="day">
+		    <div class="title"><?php echo date( 'l jS F Y', strtotime( $day ) ); ?></div>
+		    <div class="posts">
+		    <?php foreach( $day_posts as $post ) : setup_postdata( $post ); ?>
+		        <div class="post">
+		            <div class="title"><?php the_title(); ?></div>
+		            <div class="content"><?php the_content(); ?></div>
+		        </div>
+		    <?php endforeach; ?>
+		    </div>
+		</div>
+	<?php endforeach; wp_reset_postdata(); ?>
+	</div>
+<?php endif; ?>
+```
