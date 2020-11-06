@@ -84,3 +84,24 @@ $uq = new WP_User_Query($user_args);
 $users_list = $uq->get_results();
 ```
 
+
+### WP AJax Request
+
+```
+// In js file
+jquery.ajax({
+method:
+data: {
+'action': 'action_name',
+
+}
+});
+
+// In php file
+function action_func(){
+// Code
+wp_die();
+}
+add_action('wp_ajax_action_name', 'action_func');
+add_action('wp_ajax_nopriv_action_name', 'action_func');
+```
