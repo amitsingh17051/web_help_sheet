@@ -64,3 +64,21 @@ the_permalink()
 	</div>
 <?php endif; ?>
 ```
+
+### WP Meta Query
+
+```
+$user_args = array(
+    'orderby'=>'display_name',
+    'order'=>'ASC', 
+    'meta_query' => array(
+        'relation' => 'OR' ,
+        array(
+            'key' => 'office' ,
+            'value' => $userOfficeName,
+            'compare' => '=',
+        )
+    )
+);
+```
+
