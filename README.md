@@ -80,5 +80,7 @@ $user_args = array(
         )
     )
 );
+$uq = new WP_User_Query($user_args);
+$users_list = $uq->get_results();
 ```
 
