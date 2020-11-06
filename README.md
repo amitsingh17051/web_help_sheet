@@ -105,3 +105,21 @@ wp_die();
 add_action('wp_ajax_action_name', 'action_func');
 add_action('wp_ajax_nopriv_action_name', 'action_func');
 ```
+
+### Set Transiet inn WP
+```
+// check if this transiet is available
+$responseBody= get_transient('artist_products_'.$_POST['artistid']);
+
+if (!$responseBody){
+	// if not then call api and set transiate
+	$apiURL = "https://www.handmadeinbritain.co.uk/wp-json/virtual-fairs/artist-profile/56124/".$_POST['artistid'];
+
+	$response = wp_remote_get( $apiURL, array('timeout'=>120));
+
+	$responseBody = wp_remote_retrieve_body( $response );
+
+	set_transient('artist_products_'.$_POST['artistid'], $responseBody, 15600);
+
+}
+```
