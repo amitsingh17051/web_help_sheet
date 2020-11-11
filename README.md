@@ -123,5 +123,3 @@ if (!$responseBody){
 
 }
 ```
-
-hello
