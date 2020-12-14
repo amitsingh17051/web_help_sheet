@@ -123,3 +123,54 @@ if (!$responseBody){
 
 }
 ```
+
+### Filter Listbox With ids, class and search input in jquery
+```
+
+$('input[name="search"]').on("keyup", function() {
+   rq_filter_option();
+});
+$('select[name="employee"]').on("change", function() {
+    rq_filter_option();
+});
+$('select[name="projectname"]').on("change", function() {
+   rq_filter_option();
+});
+
+function rq_filter_option( selector, searchIn ){
+    var search = {};
+    $(selector).each(function(i, el){
+        $(document).on('keyup change', el, function(){
+            search[i]['search'] = $(this).val();
+        });
+    });
+
+	var search = $('input[name="search"]').val();
+	var project = $('select[name="projectname"]').val();
+	var user = $('select[name="employee"]').val();
+    $('.password-manager-list')
+    .find('.credentials')
+    .hide()
+    .filter(function() {
+      var okproject = true;
+      var okuser = true;
+      var oksearch = true;
+
+      if (project !== "all") {
+        okproject = $(this).hasClass('credential-project-'+project);
+        console.log(okproject);
+      }
+      if (user !== "all") {
+        okuser =$(this).hasClass('credential-user-'+user);
+
+      }
+      if (search !== '') {
+        oksearch = $(this).text().toLowerCase().indexOf(search) > -1;
+      }
+      //only fade a room if it satisfies all four conditions
+      return okproject && okuser && oksearch;
+    }).fadeIn('fast');
+}
+
+
+```
