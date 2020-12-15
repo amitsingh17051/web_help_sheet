@@ -172,5 +172,19 @@ function rq_filter_option( selector, searchIn ){
     }).fadeIn('fast');
 }
 
+```
+### Copy input text with or without password type
 
 ```
+$( document ).on( 'click', '.copy-text', function(e){
+    e.preventDefault();
+    var $this = $(this).closest('.form-group').find('input');
+    var copytarget = $this.prop("defaultValue");
+    var $tempInput =  $("<textarea>");
+    $("body").append($tempInput);
+    $tempInput.val(copytarget).select();
+    document.execCommand("copy");
+});
+
+```
+
