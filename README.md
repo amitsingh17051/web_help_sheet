@@ -189,3 +189,20 @@ $( document ).on( 'click', '.copy-text', function(e){
 
 ```
 
+
+### Abort Last ajax call
+
+```
+if(abortAjax){
+	abortAjax.abort();
+}
+abortAjax = $.ajax({
+	method: 'post',
+	url: themeUrl + "/getsavedcredentials.php",
+	data : {"id":savedvalue},
+	success:function(res){
+	}
+});
+```
+
+
