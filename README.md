@@ -184,6 +184,7 @@ $( document ).on( 'click', '.copy-text', function(e){
     $("body").append($tempInput);
     $tempInput.val(copytarget).select();
     document.execCommand("copy");
+    $tempInput.remove();
 });
 
 ```
