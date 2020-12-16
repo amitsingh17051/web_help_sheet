@@ -187,4 +187,9 @@ $( document ).on( 'click', '.copy-text', function(e){
 });
 
 ```
+### Convert to variable Ajax serialize data 
 
+```
+parse_str($_POST['serialize'], $whatever);
+extract($whatever);
+```
