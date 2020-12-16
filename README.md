@@ -184,12 +184,33 @@ $( document ).on( 'click', '.copy-text', function(e){
     $("body").append($tempInput);
     $tempInput.val(copytarget).select();
     document.execCommand("copy");
+    $tempInput.remove();
 });
 
 ```
 ### Convert to variable Ajax serialize data 
 
+<<<<<<< HEAD
 ```
 parse_str($_POST['serialize'], $whatever);
 extract($whatever);
 ```
+=======
+
+### Abort Last ajax call
+
+```
+if(abortAjax){
+	abortAjax.abort();
+}
+abortAjax = $.ajax({
+	method: 'post',
+	url: themeUrl + "/getsavedcredentials.php",
+	data : {"id":savedvalue},
+	success:function(res){
+	}
+});
+```
+
+
+>>>>>>> 299a7943d815b72683cbf6e0a96c4c1aec567543
