@@ -1,4 +1,4 @@
-# wp_help_sheet
+# help_sheet
 Wordpress help sheet etc.
 ### ACF code examples
 ```
