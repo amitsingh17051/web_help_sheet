@@ -211,7 +211,7 @@ abortAjax = $.ajax({
 });
 ```
 
-### Best Way to use javascript structure
+### Best javascript structure for use in projects
 
 ```
 var taskManager = {
