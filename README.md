@@ -210,3 +210,47 @@ abortAjax = $.ajax({
 	}
 });
 ```
+
+### Best Way to use javascript structure
+
+```
+var taskManager = {
+    init: function() {
+
+        // run on init, need to bind everything
+        $(function(){
+
+            $('.project-list-item').on('click', function() {
+                $('.project-list-item').removeClass('active');
+                $(this).addClass('active');
+
+                $('#project_id_input').val( $(this).data('project_id') );
+
+                taskManger.taskList.refresh();
+            });
+
+        });
+
+        $(window).on('load', function(){
+
+        });
+
+    },
+    taskList: {
+        get: function() {
+
+        },
+
+    },
+    taskDetail: {
+        get: function( task_id ) {
+
+        },
+        save: function () {
+
+        }
+    }
+
+}
+```
+
