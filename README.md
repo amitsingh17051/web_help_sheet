@@ -254,3 +254,26 @@ var taskManager = {
 }
 ```
 
+### Get thumbnail image from video
+
+```
+$currentTimestamp = new DateTime('now', new DateTimeZone('Asia/Kolkata'));
+
+$videourl = $_POST['videourl'];
+
+$videourlarr = explode( '/', $videourl );
+		
+$video_path = escapeshellarg(str_replace( get_stylesheet_directory_uri(), get_stylesheet_directory() , $videourl ));
+$video_name = end( $videourlarr );
+
+$upload_dir = wp_upload_dir(); 
+
+$image =  escapeshellarg($upload_dir['basedir'] . '/' . $video_name . '-' . $currentTimestamp->getTimestamp() . '-thumbnail.png');
+
+echo $upload_dir['baseurl'] . '/' . $video_name . '-' . $currentTimestamp->getTimestamp() .'-thumbnail.png';
+
+// shell_exec("ffmpeg -i $video_path -ss 00:00:02.000 -vframes 1 $image");
+echo $thumbnail_generate_cmd = "ffmpeg -i $video_path -vframes 1 -an -s 400x250 -ss 2 $image 2>&1";
+
+var_dump( shell_exec($thumbnail_generate_cmd) );
+```
