@@ -273,3 +273,16 @@ public function getVideoThumbnail($videourl) {
 	
 }
 ```
+
+### Adding menu item to wp dashbaord panel
+```
+// ibd-tracking-report => name of this page
+public function register_tracking_report_menu() {
+        $tracking_report = add_menu_page( __('Tracking Report') ,  __('Tracking Report'),  __('manage_options'),  'ibd-tracking-report',  array($this, 'display_tracking_report' ), 'dashicons-chart-bar',  20 );
+	// loading script for only this tracking page
+        add_action('load-'. $tracking_report, array($this,  'load_tracking_report_scripts') );
+}
+
+
+```
+
