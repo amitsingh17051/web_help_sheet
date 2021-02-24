@@ -286,3 +286,31 @@ public function register_tracking_report_menu() {
 
 ```
 
+
+### OTP entering js code
+```
+jQuery('.verify-phone-number-text ul').find('li input').each(function() {
+	jQuery(this).attr('maxlength', 1);
+	jQuery(this).on('keyup', function(e) {
+		var parent = jQuery(jQuery(this).parent().parent());
+		if(e.keyCode === 8 || e.keyCode === 37) {
+			var prev = parent.find('input#' + jQuery(this).data('previous'));
+			
+			if(prev.length) {
+				jQuery(prev).select();
+			}
+		} else if((e.keyCode >= 48 && e.keyCode <= 57) || (e.keyCode >= 65 && e.keyCode <= 90) || (e.keyCode >= 96 && e.keyCode <= 105) || e.keyCode === 39) {
+			var next = parent.find('input#' + jQuery(this).data('next'));
+			
+			if(next.length) {
+				jQuery(next).select();
+			} else {
+				if(parent.data('autosubmit')) {
+					parent.submit();
+				}
+			}
+		}
+	});
+});
+```
+
