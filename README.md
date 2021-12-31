@@ -429,3 +429,38 @@ else // Sign up
 ?>
 ```
 
+
+### Javascript Image slider liabrary
+
+```
+https://splidejs.com/
+
+<div class="splide">
+  <div class="splide__track">
+    <ul class="splide__list">
+      <li class="splide__slide">Slide 01</li>
+      <li class="splide__slide">Slide 02</li>
+      <li class="splide__slide">Slide 03</li>
+    </ul>
+  </div>
+</div>
+
+document.addEventListener( 'DOMContentLoaded', function() {
+  var splide = new Splide( '.splide', {
+      type         : 'loop',
+      perPage      : 1,
+      autoplay     : true,
+      interval     : 7000, // How long to display each slide
+      pauseOnHover : false, // must be false
+      pauseOnFocus : false, // must be false
+      resetProgress: false,
+      pagination : false, // disable pagination
+      arrows     : false // disbale arrows
+  } );
+  splide.on( 'autoplay:playing', function ( rate ) {
+  } );
+  splide.mount()
+} );
+
+```
+
