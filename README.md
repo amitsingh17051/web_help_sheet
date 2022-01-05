@@ -466,7 +466,5 @@ document.addEventListener( 'DOMContentLoaded', function() {
 
 ### Getting purchased products by user
 
-```
 [Link](https://njengah.com/woocommerce-display-products-purchased-user/) 
-```
 
