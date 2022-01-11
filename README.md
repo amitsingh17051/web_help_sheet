@@ -468,3 +468,17 @@ document.addEventListener( 'DOMContentLoaded', function() {
 
 [Link](https://njengah.com/woocommerce-display-products-purchased-user/) 
 
+### Multiple function parameters handling code
+
+```
+$data = array(
+	'status' => 'payment_done_against_bid',
+	'product_id' => $product_id,
+	'order_id' => $order_id,
+	'shipping_address' => $shipping_address,
+);
+function swapnsell_send_bid_status_email($data = array()) {
+	extract($data);
+}
+```
+
