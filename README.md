@@ -487,3 +487,11 @@ function swapnsell_send_bid_status_email($data = array()) {
 [wp_list_table function link](https://wpengineer.com/2426/wp_list_table-a-step-by-step-guide/) 
 
 
+### Create Log File
+```
+function create_log() {
+	$log  = "User: ".$_SERVER['REMOTE_ADDR'].' - '.date("F j, Y, g:i a")." -------------------------".PHP_EOL;
+	//Save string to log, use FILE_APPEND to append.
+	file_put_contents('./log_'.date("j.n.Y").'.log', $log, FILE_APPEND);
+}
+```
