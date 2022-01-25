@@ -482,3 +482,8 @@ function swapnsell_send_bid_status_email($data = array()) {
 }
 ```
 
+### Wp_list_table function example
+
+[wp_list_table function link](https://wpengineer.com/2426/wp_list_table-a-step-by-step-guide/) 
+
+
