@@ -495,3 +495,9 @@ function create_log() {
 	file_put_contents('./log_'.date("j.n.Y").'.log', $log, FILE_APPEND);
 }
 ```
+
+
+### Add Custom Fields In Custom Texonomy
+```
+https://rudrastyh.com/wordpress/add-custom-fields-to-taxonomy-terms.html
+```
