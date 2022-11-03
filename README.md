@@ -501,3 +501,24 @@ function create_log() {
 ```
 https://rudrastyh.com/wordpress/add-custom-fields-to-taxonomy-terms.html
 ```
+
+### Switch case function calling 
+```
+function test() {
+    alert('test')
+}
+function monday() {
+    alert('monday')
+}
+
+const days = {
+  0: test,
+  1: monday,
+  2: "Tuesday",
+  3: "Wednesday",
+  4: "Thursday",
+  5: "Friday",
+  6: "Saturday",
+};
+const day = days[1]();
+```
