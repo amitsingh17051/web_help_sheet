@@ -522,3 +522,26 @@ const days = {
 };
 const day = days[1]();
 ```
+# NODEJS
+
+### The best way to output id instead of _id in mongodb schema
+
+```
+const featureSchema = new Schema(
+    {
+        name: { type: String, required: true},
+        icon: { type: String, required: true},
+    }
+);
+
+// Create function to rewrite _id to id 
+const renameID = (doc, ret) => {
+	ret.id = ret._id;
+	delete ret._id;
+	return ret;
+};
+
+featureSchema.set('toJSON', { virtuals: true, transform: renameID });
+export default model("Feature", featureSchema, "feature");
+
+```
